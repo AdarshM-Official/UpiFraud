@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}UPI Fraud Detection System{% endblock %}</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5F259F',
+                        secondary: '#7C3AED',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            backdrop-filter: blur(12px);
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+        }
+    </style>
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-transparent backdrop-blur-md shadow-sm border-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Logo -->
+                <a href="/" class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
+                        U
+                    </div>
+
+                    <div>
+                        <h1 class="font-bold text-lg text-gray-900">
+                            UPI Shield
+                        </h1>
+                        <p class="text-xs text-gray-500">
+                            Fraud Detection System
+                        </p>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+
+                    <a href="#features"
+                       class="text-gray-600 hover:text-primary transition">
+                        Features
+                    </a>
+
+                    <a href="#about"
+                       class="text-gray-600 hover:text-primary transition">
+                        About
+                    </a>
+
+                    <a href="#how-it-works"
+                       class="text-gray-600 hover:text-primary transition">
+                        Workflow
+                    </a>
+
+                    <a href="#contact"
+                       class="text-gray-600 hover:text-primary transition">
+                        Contact
+                    </a>
+
+                    <a href="/login/"
+                       class="px-5 py-2.5 rounded-xl border border-primary text-primary font-medium hover:bg-primary hover:text-white transition">
+                        Login
+                    </a>
+
+                    <a href="/register/"
+                       class="px-5 py-2.5 rounded-xl bg-primary text-white font-medium hover:bg-purple-700 transition shadow-md">
+                        Register
+                    </a>
+
+                </div>
+
+                <!-- Mobile Toggle -->
+                <button
+                    id="mobile-btn"
+                    class="md:hidden text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         class="h-7 w-7"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke="currentColor">
+
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+             class="hidden md:hidden bg-white border-t">
+
+            <div class="px-6 py-4 flex flex-col gap-4">
+
+                <a href="#features"
+                   class="text-gray-700">
+                    Features
+                </a>
+
+                <a href="#about"
+                   class="text-gray-700">
+                    About
+                </a>
+
+                <a href="#how-it-works"
+                   class="text-gray-700">
+                    Workflow
+                </a>
+
+                <a href="#contact"
+                   class="text-gray-700">
+                    Contact
+                </a>
+
+                <hr>
+
+                <a href="/login/"
+                   class="text-center border border-primary text-primary rounded-xl py-3">
+                    Login
+                </a>
+
+                <a href="/register/"
+                   class="text-center bg-primary text-white rounded-xl py-3">
+                    Register
+                </a>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <button id="scroll-top-btn"
+            class="fixed bottom-5 right-5 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-purple-700 transition">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             class="h-6 w-6"
+             fill="none"
+             viewBox="0 0 24 24"
+             stroke="currentColor">
+
+            <path stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-6 py-12">
+
+            <div class="grid md:grid-cols-3 gap-10">
+
+                <div>
+                    <h3 class="font-bold text-xl mb-3">
+                        UPI Shield
+                    </h3>
+
+                    <p class="text-gray-400">
+                        AI-powered fraud detection system designed
+                        to identify suspicious UPI transactions in real time.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-3">
+                        Quick Links
+                    </h4>
+
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Reports</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-3">
+                        Security
+                    </h4>
+
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Machine Learning</li>
+                        <li>Risk Scoring</li>
+                        <li>Behavior Analysis</li>
+                        <li>Fraud Prevention</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500">
+                © 2026 UPI Fraud Detection System. All Rights Reserved.
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        const mobileBtn = document.getElementById('mobile-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        const scrollTopBtn = document.getElementById('scroll-top-btn');
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
