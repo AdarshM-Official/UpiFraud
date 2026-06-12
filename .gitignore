@@ -1,5 +1,27 @@
+# Virtual Environment
 venv/
-db.sqlite3
-*.pyc
+env/
+.venv/
+
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
+
+# Django
+db.sqlite3
+*.log
+
+# Environment Variables
+.env
+
+# VS Code
+.vscode/
+
+# OS Files
 .DS_Store
+Thumbs.db
+
+# Static and Media (optional)
+media/
+staticfiles/
